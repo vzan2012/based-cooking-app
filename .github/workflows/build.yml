@@ -29,11 +29,19 @@ jobs:
       - name: Generate Android folder
         run: flutter create . --project-name=based_cooking_app --platforms android
 
+      - name: Create gradle.properties
+        run: |
+          mkdir -p android
+          cat > android/gradle.properties << 'EOF'
+          org.gradle.jvmargs=-Xmx4096m
+          android.enableAapt2VersionCheck=false
+          EOF
+
       - name: Build APK
-        run: flutter build apk --release -- --no-resource-verification
+        run: flutter build apk --release
 
       - name: Build AAB (App Bundle)
-        run: flutter build appbundle --release -- --no-resource-verification
+        run: flutter build appbundle --release
 
       - name: Upload APK artifacts
         uses: actions/upload-artifact@v4
