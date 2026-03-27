@@ -34,7 +34,9 @@ jobs:
           mkdir -p android
           cat > android/gradle.properties << 'EOF'
           org.gradle.jvmargs=-Xmx4096m
-          android.enableAapt2VersionCheck=false
+          android.useAndroidX=true
+          android.enableJetifier=true
+          android.compileSdkVersion=35
           EOF
 
       - name: Build APK
