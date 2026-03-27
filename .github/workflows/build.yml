@@ -21,23 +21,13 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.24.0"
+          flutter-version: "3.22.0"
 
       - name: Get dependencies
         run: flutter pub get
 
       - name: Generate Android folder
         run: flutter create . --project-name=based_cooking_app --platforms android
-
-      - name: Update Android build configuration
-        run: |
-          # Update compileSdk to 35
-          sed -i 's/android {/android {\n    compileSdk = 35/' android/app/build.gradle
-          sed -i 's/compileSdk flutter.compileSdkVersion/compileSdk = 35/' android/app/build.gradle
-          sed -i 's/compileSdkVersion flutter.compileSdkVersion/compileSdk = 35/' android/app/build.gradle
-
-          # Update Kotlin version to 1.9.0
-          sed -i 's/ext.kotlin_version = .*/ext.kotlin_version = "1.9.0"/' android/build.gradle
 
       - name: Build APK
         run: flutter build apk --release
@@ -65,7 +55,7 @@ jobs:
 #       - name: Setup Flutter
 #         uses: subosito/flutter-action@v2
 #         with:
-#           flutter-version: "3.24.0"
+#           flutter-version: "3.22.0"
 
 #       - name: Get dependencies
 #         run: flutter pub get
@@ -87,7 +77,7 @@ jobs:
 #       - name: Setup Flutter
 #         uses: subosito/flutter-action@v2
 #         with:
-#           flutter-version: "3.24.0"
+#           flutter-version: "3.22.0"
 
 #       - name: Get dependencies
 #         run: flutter pub get
