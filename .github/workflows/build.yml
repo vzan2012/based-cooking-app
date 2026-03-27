@@ -26,6 +26,9 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Generate Android folder
+        run: flutter create . --project-name=based_cooking_app --platforms android
+
       - name: Build APK
         run: flutter build apk --release
 
