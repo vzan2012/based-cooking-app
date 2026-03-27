@@ -26,9 +26,6 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Create Android folder
-        run: flutter create . --platforms android
-
       - name: Build APK
         run: flutter build apk --release
 
@@ -60,14 +57,11 @@ jobs:
 #       - name: Get dependencies
 #         run: flutter pub get
 
-#       - name: Create iOS folder
-#         run: flutter create . --platforms ios
-
 #       - name: Build iOS
 #         run: flutter build ios --release --no-codesign
 
 #       - name: Upload iOS build artifacts
-#         uses: actions/upload-artifact@v3
+#         uses: actions/upload-artifact@v4
 #         with:
 #           name: ios-build
 #           path: build/ios/iphoneos/Runner.app
@@ -85,11 +79,11 @@ jobs:
 #       - name: Get dependencies
 #         run: flutter pub get
 
-#       - name: Build macOS
+#       - name: Build macOS (disabled for now)
 #         run: flutter build macos --release
 
 #       - name: Upload macOS artifacts
-#         uses: actions/upload-artifact@v3
+#         uses: actions/upload-artifact@v4
 #         with:
 #           name: macos-build
 #           path: build/macos/Build/Products/Release/Based\ Cooking.app
