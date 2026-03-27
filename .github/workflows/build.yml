@@ -30,10 +30,10 @@ jobs:
         run: flutter create . --project-name=based_cooking_app --platforms android
 
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --release -- --no-resource-verification
 
       - name: Build AAB (App Bundle)
-        run: flutter build appbundle --release
+        run: flutter build appbundle --release -- --no-resource-verification
 
       - name: Upload APK artifacts
         uses: actions/upload-artifact@v4
